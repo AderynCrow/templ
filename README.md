@@ -24,3 +24,20 @@ $FILENAME will be replaced with the full filename (i.e. foo.md)
 $FILE will only be replaced with the name without the extension (i.e. foo)
 
 Please not that this feature will probably not work with more complicated filetypes (like odt, ods, etc...)
+
+## instalation
+
+clone the repository
+```
+git clone https://github.com/AderynCrow/templ.git
+```
+
+change into the directory
+```
+cd templ
+```
+
+run the install.sh
+```
+./install.sh
+```
