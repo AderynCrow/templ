@@ -48,5 +48,7 @@ string select_string(vector<string> choices){
             selection = 0;
         }
 	}
+	if (selection >= choices.size())
+		selection = choices.size()-1;
 	return choices.at(selection);
 }
