@@ -22,3 +22,5 @@ Currently there are Two variables which templ can replace
 $FILENAME will be replaced with the full filename (i.e. foo.md)
 
 $FILE will only be replaced with the name without the extension (i.e. foo)
+
+Please not that this feature will probably not work with more complicated filetypes (like odt, ods, etc...)
