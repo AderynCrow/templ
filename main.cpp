@@ -5,7 +5,9 @@
 #include "main.hpp"
 using namespace std;
 
+string file_name;
 int main(int argc, char *argv[], char *envp[]){
+	//parse arguments
 	if (argc < 2) {
 		cout << "No file :(\n";
 		return 1;
@@ -15,20 +17,16 @@ int main(int argc, char *argv[], char *envp[]){
 		cout << "File exists :(\n";
 		return 1;
 	}
-	file_extension = file_name.extension();
-	homedir = getenv("HOME");
-	template_directory = filesystem::path(homedir + "/Templates/");
 
-	vector<string> templates = get_templates(file_extension);
-	copy_file();
+	copy_file(file_name);
     return 0;
 }
 
-vector<string> get_templates(string extension) {
-	vector<string> result;
-	 for (const auto & entry : filesystem::directory_iterator(template_directory)){
-		 if (entry.is_regular_file() && entry.path().extension() == extension)
-			 result.push_back(entry.path());
-	 }
-	 return result;
+string get_filename() {
+	return file_name;
+}
+
+string get_extension(string filename) {
+	filesystem::path result = filename;
+	return  result.extension();
 }

@@ -1,6 +1,6 @@
-string homedir;
-filesystem::path file_name;
-string file_extension;
-filesystem::path template_directory;
-
-vector<string> get_templates(string extension);
+#include <iostream>
+#include <filesystem>
+#include <vector>
+using namespace std;
+string get_filename();
+string get_extension(string filename);
