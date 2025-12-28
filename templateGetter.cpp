@@ -13,12 +13,19 @@ string get_template(string extension) {
 	return select_string(templates);
 }
 
+string get_template_directory(){
+	string homedir = getenv("HOME");
+	string result = filesystem::path(homedir + "/Templates/");
+	if (filesystem::is_symlink(result)){
+		result = filesystem::read_symlink(result);
+	}
+	return result;
+}
 
 vector<string> get_templates(string extension) {
-	string homedir = getenv("HOME");
 	filesystem::path template_directory;
-	template_directory = filesystem::path(homedir + "/Templates/");
 	vector<string> result;
+	template_directory = get_template_directory();
 	for (const auto & entry : filesystem::directory_iterator(template_directory)){
 		if (entry.is_regular_file() && entry.path().extension() == extension)
 			result.push_back(entry.path());
